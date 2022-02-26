@@ -30,19 +30,14 @@ const mutations = {
       sortedUsers.sort((a, b) => (a[sortKey] > b[sortKey] ? 1 : -1));
     } else {
       sortedUsers.sort((a, b) => (a[sortKey] > b[sortKey] ? -1 : 1));
-  
     }
     state.users = sortedUsers;
   },
   setActiveIndex(state, i) {
-    
-    if(i !== state.activeIndex){
-      state.asc=true,
-      console.log(i);
+    if (i !== state.activeIndex) {
+      (state.asc = true), (state.activeIndex = i);
+    } else {
       state.activeIndex = i;
-    }
-    else{
-state.activeIndex = i;
     }
   },
 };
