@@ -79,7 +79,7 @@
                 >
                   <span
                     class="text-gray-600"
-                    v-if="typeof user[column] != 'object'"
+                    v-if="(typeof user[column] != 'object')"
                   >
                     {{ user[column] }}
                   </span>
@@ -162,8 +162,8 @@ export default {
 
         return tempObj;
       });
-      if (this.search !=='') {
-         // this will not be paginated
+      if (this.search !== "") {
+        // this will not be paginated
         this.set_Headers(newArray[0]);
         return newArray.filter((item) => {
           return this.search
