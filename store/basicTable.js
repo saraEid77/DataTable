@@ -27,9 +27,22 @@ const mutations = {
     state.asc = !state.asc;
     let sortedUsers = state.users;
     if (state.asc) {
-      sortedUsers.sort((a, b) => (a[sortKey] > b[sortKey] ? 1 : -1));
+      sortedUsers.sort((a, b) => {
+        if( typeof a[sortKey] !=='object'){
+          return a[sortKey] > b[sortKey] ? 1 : -1
+        }else{
+          return Object.values(a[sortKey])[0] > Object.values(b[sortKey])[0]? 1 : -1
+        }
+      });
     } else {
-      sortedUsers.sort((a, b) => (a[sortKey] > b[sortKey] ? -1 : 1));
+      sortedUsers.sort((a, b) => {
+        if( typeof a[sortKey] !=='object'){
+          return a[sortKey] > b[sortKey] ? -1 : 1
+        }else{
+          return Object.values(a[sortKey])[0] > Object.values(b[sortKey])[0]? -1 : 1
+        }
+      });
+      
     }
     state.users = sortedUsers;
   },

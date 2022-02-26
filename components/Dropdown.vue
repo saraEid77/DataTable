@@ -1,9 +1,8 @@
 <template>
   <div>
-
     <button
       class="flex justify-between  w-full bg-white text-blue-900 border border-gray-300 p-2 rounded-lg cursor-pointer relative"
-      @click="showDropdown">
+      @click="showDropdown"  >
       Column Visibilty
        <font-awesome-icon :icon="['fa', 'angle-down']" class="text-xs mx-2 mt-1" />
     </button>
@@ -48,6 +47,7 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
+
 export default {
   data() {
     return {
