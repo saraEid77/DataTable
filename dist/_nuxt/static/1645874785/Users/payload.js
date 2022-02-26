@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/users", {data:[{}],fetch:{},mutations:[["basicTable\u002Fset_Headers",void 0]]});
