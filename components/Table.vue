@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="grid grid-cols-12 gap-4 bg-gray-100 rounded-lg mt-4 py-3 px-2 text-sm">
-      <div class="col-span-8 flex items-center justify-center">
+      <div class="md:col-span-8 col-span-12 flex items-center justify-center">
         <div class="flex w-full rounded-lg px-4 py-2 bg-white text-gray-400">
           <font-awesome-icon
             :icon="['fas', 'magnifying-glass']"
@@ -16,7 +16,7 @@
           />
         </div>
       </div>
-      <div class="col-span-2">
+      <div class="md:col-span-2 col-span-12">
         <button
           class="flex justify-between w-full bg-white text-blue-900 border border-gray-300 p-2 rounded-lg cursor-pointer relative"
         >
@@ -27,7 +27,7 @@
           />
         </button>
       </div>
-      <div class="col-span-2">
+      <div class="md:col-span-2 col-span-12">
         <dropDown />
       </div>
     </div>
@@ -106,8 +106,8 @@
     <div
       class="grid grid-cols-12 gap-4 bg-gray-100 rounded-lg py-1 px-2 my-4 text-gray-500 text-xs"
     >
-      <div class="col-span-8 pt-2">showing 1 of 8 entires</div>
-      <div class="col-span-4 flex justify-end">
+      <div class="md:col-span-8 col-span-12 pt-2 ">showing 1 of 8 entires</div>
+      <div class="md:col-span-4 col-span-12 flex md:justify-end justify-start" >
         <span class="leading-10 mr-2"> The page You ara on </span>
         <select class="cursor-pointer bg-white border border-gray-300 rounded w-10 h-6 px-1 mt-2 ">
           <option>1</option>
