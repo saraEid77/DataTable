@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="grid grid-cols-12 gap-4 bg-gray-100 rounded-lg mt-4 py-5 px-2">
+    <div class="grid grid-cols-12 gap-4 bg-gray-100 rounded-lg mt-4 py-3 px-2 text-sm">
       <div class="col-span-8 flex items-center justify-center">
         <div class="flex w-full rounded-lg px-4 py-2 bg-white text-gray-400">
           <font-awesome-icon
             :icon="['fas', 'magnifying-glass']"
-            class="mt-1 mr-3"
+            class="mt-1 mr-2"
           />
 
           <input
@@ -23,7 +23,7 @@
           Filter
           <font-awesome-icon
             :icon="['fa', 'filter']"
-            class="w-3 h-3 mx-2 mt-2"
+            class="text-xs mx-2 mt-1"
           />
         </button>
       </div>
@@ -36,13 +36,13 @@
         <div
           class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
         >
-          <table class="min-w-full divide-y divide-gray-200">
+          <table class="min-w-full divide-y divide-gray-200 text-xs">
             <thead class="bg-gray-50">
               <tr>
                 <th
                   v-for="(column, index) in headers"
                   :key="index"
-                  class="px-6 py-3 cursor-pointer text-left text-xs font-medium text-blue-800 uppercase tracking-wider"
+                  class="px-6 py-3 cursor-pointer text-left text-xs  text-blue-800 uppercase tracking-wider"
                   @click="sortColumn(column, index)"
                 >
                   <span class="flex">
@@ -104,24 +104,24 @@
       </div>
     </div>
     <div
-      class="grid grid-cols-12 gap-4 bg-gray-100 rounded-lg py-3 px-2 my-4 text-gray-500"
+      class="grid grid-cols-12 gap-4 bg-gray-100 rounded-lg py-1 px-2 my-4 text-gray-500 text-xs"
     >
-      <div class="col-span-8 pt-1">showing 1 of 8 entires</div>
+      <div class="col-span-8 pt-2">showing 1 of 8 entires</div>
       <div class="col-span-4 flex">
         <span class="leading-10 mr-2"> The page You ara on </span>
-        <select class="p-1 rounded-lg">
+        <select class="cursor-pointer bg-white border border-gray-300 rounded w-10 h-6 px-1 mt-2 ">
           <option>1</option>
           <option>2</option>
           <option>3</option>
         </select>
-        <span class="mx-5 leading-10">| </span>
+        <span class="mx-2 leading-9">| </span>
         <span
-          class="cursor-pointer bg-white border border-gray-300 rounded-lg px-2 py-1 mr-1"
+          class="cursor-pointer bg-white border border-gray-300 rounded w-6 h-6 px-1 mt-2 mr-2 text-center "
         >
           <font-awesome-icon :icon="['fas', 'arrow-left']" class="mt-1" />
         </span>
         <span
-          class="cursor-pointer bg-white border border-gray-300 rounded-lg px-2 py-1"
+          class="cursor-pointer bg-white border border-gray-300 rounded w-6 h-6 px-1 mt-2 mr-2 text-center"
         >
           <font-awesome-icon
             :icon="['fas', 'arrow-right']"
@@ -140,7 +140,7 @@ export default {
   components: { dropDown },
   data() {
     return {
-      activeIndex: null,
+      // activeIndex: null,
       search: "",
     };
   },
@@ -151,6 +151,7 @@ export default {
       headers: (state) => state.basicTable.headers,
       selectedArray: (state) => state.basicTable.selectedArray,
       asc: (state) => state.basicTable.asc,
+      activeIndex: (state) => state.basicTable.activeIndex,
     }),
     filteredUsers() {
       let newArray = [];
@@ -166,10 +167,12 @@ export default {
         // this will not be paginated
         this.set_Headers(newArray[0]);
         return newArray.filter((item) => {
-          return this.search
+          if(item.name){
+            return this.search
             .toLowerCase()
             .split(" ")
             .every((v) => item.name.toLowerCase().includes(v));
+          }
         });
       } else {
         this.set_Headers(newArray[0]);
@@ -185,10 +188,13 @@ export default {
       set_Headers: "basicTable/set_Headers",
       set_Users: "basicTable/set_Users",
       sortCols: "basicTable/sortCols",
+      setActiveIndex : "basicTable/setActiveIndex"
     }),
     sortColumn(sortKey, i) {
-      this.activeIndex = i;
+
+      this.setActiveIndex(i)
       this.sortCols(sortKey);
+     
     },
   },
 };

@@ -1,11 +1,10 @@
-
-
 const state = {
   users: [],
   columns: [],
-  headers:[],
-  selectedArray:[],
-  asc: true
+  headers: [],
+  selectedArray: [],
+  asc: true,
+  activeIndex: null,
 };
 
 const mutations = {
@@ -16,29 +15,37 @@ const mutations = {
     state.columns = Object.keys(columns);
   },
   set_Headers(state, headers) {
-  
-    if(headers){
+    if (headers) {
       state.headers = Object.keys(headers);
     }
   },
-  selectedFilters(state , filter){
-    state.selectedArray = filter
-    localStorage.setItem('selectedArray',JSON.stringify(state.selectedArray));
+  selectedFilters(state, filter) {
+    state.selectedArray = filter;
+    localStorage.setItem("selectedArray", JSON.stringify(state.selectedArray));
   },
-  sortCols(state,sortKey ) {
- 
+  sortCols(state, sortKey) {
     state.asc = !state.asc;
     let sortedUsers = state.users;
-    if(state.asc){
+    if (state.asc) {
       sortedUsers.sort((a, b) => (a[sortKey] > b[sortKey] ? 1 : -1));
-    }else{
+    } else {
       sortedUsers.sort((a, b) => (a[sortKey] > b[sortKey] ? -1 : 1));
+  
     }
     state.users = sortedUsers;
-}
+  },
+  setActiveIndex(state, i) {
+    
+    if(i !== state.activeIndex){
+      state.asc=true,
+      console.log(i);
+      state.activeIndex = i;
+    }
+    else{
+state.activeIndex = i;
+    }
+  },
 };
-
-
 
 const actions = {
   async getUsers({ commit }) {
@@ -51,7 +58,6 @@ const actions = {
       });
   },
 };
-
 
 export default {
   state,

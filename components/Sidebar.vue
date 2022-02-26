@@ -1,7 +1,7 @@
 
 <template>
-  <div class="w-64 h-full shadow-md bg-white fixed top-0 bottom-0">
-    <div class="flex items-center pl-5 border-b border-gray-200 py-8">
+  <div class="  shadow-md bg-white h-screen sticky top-0">
+    <div class="flex items-center pl-0 border-b border-gray-200 py-4">
       <logo class="" />
       <div class="">
         <p class="text-lg font-semibold text-blue-900 -mx-2">
@@ -11,9 +11,9 @@
       </div>
     </div>
     <div class="flex py-5 px-3">
-      <span class="bg-gray-100 w-10 h-10 text-center leading-10 rounded-full mr-2">SR</span>      
-      <span >
-        <p class="text-sm text-gray-300">Adminstrator</p>
+      <span class="bg-gray-100 w-8 h-8 text-center leading-8 text-xs rounded-full mr-2">SR</span>      
+      <span  class="text-sm">
+        <p class="text-xs text-gray-300">Adminstrator</p>
         <span class="font-bold">Sara Eid </span>
       </span>
     </div>
@@ -21,7 +21,7 @@
       <li>
         <NuxtLink
           to="/"
-          class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-900 hover:bg-blue-50 transition duration-300 ease-in-out"
+          class="flex items-center text-xs py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-900 hover:bg-blue-50 transition duration-300 ease-in-out"
         >
           <font-awesome-icon :icon="['fa', 'globe']" class="mr-3" />
 
@@ -31,7 +31,7 @@
       <li>
         <NuxtLink
           to="/users"
-          class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-900 hover:bg-blue-50 transition duration-300 ease-in-out"
+          class="flex items-center text-xs py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-900 hover:bg-blue-50 transition duration-300 ease-in-out"
         >
           <font-awesome-icon :icon="['fa', 'users']" class="mr-3" />
           <span>Users</span>
