@@ -107,7 +107,7 @@
       class="grid grid-cols-12 gap-4 bg-gray-100 rounded-lg py-1 px-2 my-4 text-gray-500 text-xs"
     >
       <div class="col-span-8 pt-2">showing 1 of 8 entires</div>
-      <div class="col-span-4 flex">
+      <div class="col-span-4 flex justify-end">
         <span class="leading-10 mr-2"> The page You ara on </span>
         <select class="cursor-pointer bg-white border border-gray-300 rounded w-10 h-6 px-1 mt-2 ">
           <option>1</option>
